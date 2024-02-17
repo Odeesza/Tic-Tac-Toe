@@ -134,7 +134,6 @@ class Puissance_4():
         player = -1 if player == 'red' else 1
         
         sequence = np.array([player,player,player,player])
-        print(np.diag(self.board_status,k=1))
         #Horizontals
         for j in range(6):
             h = np.array(self.board_status[5-j,:])
@@ -148,11 +147,12 @@ class Puissance_4():
                 return True 
             
         #diagonals
-        
-        
+        for i in range(-2,4):
+            d1 = np.diag(self.board_status,i)
+            d2 = np.fliplr(self.board_status).diagonal(i)
+            if self.check_sequence(d1,sequence) or self.check_sequence(d2,sequence):
+                return True
             
-
-    
         return False
     
     def is_tie(self):

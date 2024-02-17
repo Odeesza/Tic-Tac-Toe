@@ -8,19 +8,18 @@ def clic(event):
 #Create an instance of tkinter frame or window
 win= Tk()
 
-size_of_board = 600
+size_of_board = 800
 #Create a Label widget
-label= Label(win, text="Tic-Tac Toe", font= ('Courier 20 underline'))
-label.pack()
+
 canvas = Canvas(win, width=size_of_board, height=size_of_board)
 canvas.pack()
 win.bind('<Button-1>', clic)
 
-for i in range(2):
-    canvas.create_line((i + 1) * size_of_board / 3, 0, (i + 1) * size_of_board / 3, size_of_board)
+canvas.create_rectangle(0,0,size_of_board-20,size_of_board-120,fill="blue",outline="black")
+for j in range(7):
+    for i in range(6):
+        canvas.create_oval(10+j*110,10+i*110,110+110*j,110+110*i,fill ="white")
 
-for i in range(2):
-    canvas.create_line(0, (i + 1) * size_of_board / 3, size_of_board, (i + 1) * size_of_board / 3)
 win.mainloop()
 
 

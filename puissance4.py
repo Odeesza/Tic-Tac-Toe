@@ -1,12 +1,13 @@
 from tkinter import *
 import numpy as np
+import time
 
 
 size_of_board = 800
 symbol_size = (size_of_board / 3 - size_of_board / 8) / 2
 symbol_thickness = 50
 symbol_red_color = '#EE4035'
-symbol_blue_color = '#0492CF'
+symbol_blue_color = 'yellow'
 Green_color = '#7BC043'
 
 class Puissance_4():
@@ -202,6 +203,8 @@ class Puissance_4():
                     self.player_red_turns=not(self.player_red_turns)
             #Check if it's gameover
             if self.is_gameover():
+                self.canvas.create_text(400,400,text = "Oh! you lose bitch",font = ('Helvetica', '50'))
+                time.sleep()
                 self.display_gameover()
         else:#Play again
             self.canvas.delete("all")

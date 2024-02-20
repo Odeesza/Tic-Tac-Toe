@@ -203,8 +203,6 @@ class Puissance_4():
                     self.player_red_turns=not(self.player_red_turns)
             #Check if it's gameover
             if self.is_gameover():
-                self.canvas.create_text(400,400,text = "Oh! you lose bitch",font = ('Helvetica', '50'))
-                time.sleep()
                 self.display_gameover()
         else:#Play again
             self.canvas.delete("all")
